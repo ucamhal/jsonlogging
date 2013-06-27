@@ -51,7 +51,7 @@ class RecordValue(object):
         self._attr = attr_name
 
     def render(self, record):
-        return getattr(record, self._attr, None)
+        return getattr(record, self._attr)
 
 
 class DateRecordValue(object):
@@ -84,14 +84,14 @@ class DateRecordValue(object):
         return datetime.isoformat()
 
 
-class FormattedRecordRecordValue(object):
+class FormattedMessageRecordValue(object):
     """
     A Value implementation which returns the value of a the
-    LogRecord's formatted record.
+    LogRecord's formatted message.
     """
     def render(self, record):
         if isinstance(record.msg, basestring):
-            return record.getRecord()
+            return record.getMessage()
         return None
 
 
