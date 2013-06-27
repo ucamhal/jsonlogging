@@ -19,6 +19,7 @@ def default_template():
             ("traceback", ExceptionTracebackRecordValue())
         ])),
 
+        ("name", RecordValue("name")),
         ("level", RecordValue("levelname")),
         ("time", DateRecordValue()),
 
