@@ -91,7 +91,8 @@ class TestExceptionRelatedRecordValue(unittest.TestCase):
         value = values.ExceptionMessageRecordValue()
         self.assertIsNone(value.render(empty_record))
 
-    def test_exception_traceback_renders_to_none_when_no_exception_present(self):
+    def test_exception_traceback_renders_to_none_when_no_exception_present(
+            self):
         """
         ExceptionTracebackRecordValue.render() should return None when no
         exception info is present on the record.
@@ -128,7 +129,9 @@ class TestExceptionRelatedRecordValue(unittest.TestCase):
 class TestOrderedObjectValue(unittest.TestCase):
 
     def test_empty_oov_renders_to_none(self):
-        actual = values.OrderedObjectValue([]).render(logging.makeLogRecord({}))
+        actual = values.OrderedObjectValue([]).render(
+            logging.makeLogRecord({})
+        )
         self.assertEqual(None, actual)
 
     def test_oov_with_single_none_value_renders_to_none(self):

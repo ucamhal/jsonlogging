@@ -22,8 +22,8 @@ class OrderedObjectValue(object):
     Value instance whose render() method will be called to produce the dict
     returned by this instance's render() method.
 
-    The order of `entries` is significant as the returned dict is an OrderedDict
-    matching the order that items appear in `entries`.
+    The order of `entries` is significant as the returned dict is an
+    OrderedDict matching the order that items appear in `entries`.
     """
     def __init__(self, entries):
         self._entries = entries
@@ -144,7 +144,7 @@ class ExceptionTracebackRecordValue(BaseExcInfoRecordValue):
 
     def render_trace_entry(self, entry):
         filename, line_number, function_name, code_line = entry
-        
+
         json = OrderedDict()
         json["file"] = filename
         json["line"] = line_number
