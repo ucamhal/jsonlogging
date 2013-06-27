@@ -10,6 +10,6 @@ class JsonFormatter(object):
     def get_adapter(self):
         return self._adapter
 
-    def format(self, message):
-        json = self.get_adapter().to_json(message)
+    def format(self, record):
+        json = self.get_adapter().to_json(record)
         return self.get_encoder().encode(json)

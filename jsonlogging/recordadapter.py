@@ -16,5 +16,5 @@ class ValueRecordAdapter(object):
     def __init__(self, value_template):
         self._value_template = value_template
 
-    def to_json(message):
-        return self._value_template.render(message)
+    def to_json(self, record):
+        return self._value_template.render(record)

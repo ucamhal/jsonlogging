@@ -187,3 +187,28 @@ class TestOrderedObjectValue(unittest.TestCase):
             json.keys()
         )
 
+    def test_oovs_can_nest(self):
+        """
+        Verify that nesting OrderedObjectValues produces nested dicts in the
+        render() return value.
+        """
+        oov = values.OrderedObjectValue([
+            ("test_msg", values.RecordValue("msg")),
+            ("nested", values.OrderedObjectValue([
+                ("nested_path", values.RecordValue("pathname"))
+            ]))
+        ])
+
+        record = logging.makeLogRecord({
+            "msg": "Hi",
+            "pathname": "/some/path.py"
+        })
+
+        json = oov.render(record)
+
+        self.assertEqual(2, len(json))
+        self.assertEqual(["test_msg", "nested"], json.keys())
+
+        nested = json["nested"]
+        self.assertEqual(1, len(nested))
+        self.assertEqual(["nested_path"], nested.keys())
