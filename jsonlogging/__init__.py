@@ -58,3 +58,7 @@ def get_json_formatter(json_encoder=None, message_adapter=None):
         json_encoder or default_json_encoder(),
         message_adapter or default_message_adapter()
     )
+
+
+__version__ = "0.0.3"
+__version_info__ = tuple(int(n) for n in __version__.split("."))
