@@ -2,3 +2,6 @@
 .coverage
 cover/
 build/
+MANIFEST
+dist/
+htmlcov/
