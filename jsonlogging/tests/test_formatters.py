@@ -52,3 +52,22 @@ class TestJsonFormatter(unittest.TestCase):
         # Assertion
         mock_adapter.to_json.assert_called_once_with(sentinel.log_record)
         mock_encoder.encode.assert_called_once_with(sentinel.adapter_result)
+
+
+class TestWrappedJsonFormatter(unittest.TestCase):
+    def test_wrapped_formatter_wraps_json(self):
+
+        mock_adapter = MagicMock()
+        mock_adapter.to_json.return_value = {"this_is": "json"}
+
+        formatter = formatters.WrapedJsonFormatter(
+            "Before {json} After",
+            formatters.default_json_encoder(),
+            mock_adapter
+        )
+
+        formatted = formatter.format(sentinel.log_record)
+
+        mock_adapter.to_json.assert_called_once_with(sentinel.log_record)
+
+        self.assertEqual("""Before {"this_is":"json"} After""", formatted)
