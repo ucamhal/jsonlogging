@@ -1,0 +1,6 @@
+# The following packages are required to run the tests:
+mock
+
+# If you want to run tests with nosetests and get coverage stats you'll need:
+nose
+coverage

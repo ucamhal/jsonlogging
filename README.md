@@ -139,7 +139,9 @@ Let's make the logs a bit easier to read by configuring the JSON output to be pr
 Tests
 -----
 
-To run the unit tests you can use `nosetests`. e.g.:
+*Note: See `requirements.txt` for required test dependencies (e.g. `pip install -r requirements.txt`).*
+
+To run the unit tests you can use `nosetests`:
 
     (jsonlogging)hwtb2@pebble:~/Documents/workspace/jsonlogging> python `which nosetests` --with-coverage --cover-html --cover-package jsonlogging
     ....................
@@ -156,4 +158,4 @@ To run the unit tests you can use `nosetests`. e.g.:
 
     OK
 
-(The `which nosetests` is needed because I'm using a virtualenvironment and `nosetests` doesn't pick up virtualenv packages if run normally.)
+*(The `which nosetests` is needed because I'm using a virtualenvironment and `nosetests` doesn't pick up virtualenv packages if run normally.)*
