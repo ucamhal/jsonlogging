@@ -5,3 +5,5 @@ build/
 MANIFEST
 dist/
 htmlcov/
+*.egg
+*.egg-info

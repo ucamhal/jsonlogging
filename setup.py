@@ -1,6 +1,5 @@
-from distutils.core import setup
+from setuptools import setup
 
-from jsonlogging import __version__
 
 def get_version(filename):
     """
@@ -18,8 +17,27 @@ def get_version(filename):
 
 setup(
     name="jsonlogging",
+    description="jsonlogging provides structured log output from the "
+                "logging module in JSON format",
+    author="Hal Blackburn",
+    author_email="hwtb2@cam.ac.uk",
+    url="https://github.com/ucamhal/ravenpy",
     version=get_version("jsonlogging/__init__.py"),
     packages=["jsonlogging"],
     license="BSD",
-    long_description=open("README.md").read()
+    classifiers=[
+        "Development Status :: 5 - Production/Stable",
+        "Intended Audience :: Developers",
+        "Intended Audience :: System Administrators",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python :: 2.6",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python",
+        "Topic :: Software Development",
+        "Topic :: System :: Logging"
+    ],
+    long_description=open("README.md").read(),
+    test_suite="jsonlogging.tests.test_all",
+    tests_require="mock >= 1.0.0, < 2.0.0"
 )
